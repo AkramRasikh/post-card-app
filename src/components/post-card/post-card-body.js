@@ -1,5 +1,7 @@
 import React from 'react';
 import { string, func } from 'prop-types';
+import PostCardBodyTitle from './post-card-body-title';
+import PostCardBodyText from './post-card-body-text';
 
 const PostCardBody = ({
   titleText,
@@ -8,14 +10,8 @@ const PostCardBody = ({
   setBodyText,
 }) => (
   <form>
-    <label htmlFor='title'>
-      Title:
-      <input type='text' name='title' onChange={(e) => setTitleText(e.target.value)} value={titleText} />
-    </label>
-    <label htmlFor='message'>
-      Message:
-      <textarea type='textarea' name='message' onChange={(e) => setBodyText(e.target.value)} value={bodyText} rows='4' cols='50' />
-    </label>
+    <PostCardBodyTitle titleText={titleText} setTitleText={setTitleText} />
+    <PostCardBodyText bodyText={bodyText} setBodyText={setBodyText} />
   </form>
 );
 
