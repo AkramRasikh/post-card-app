@@ -1,5 +1,6 @@
 import React from 'react';
 import { string } from 'prop-types';
+import PostCardUserInitials from './post-card-user-initials';
 
 const PostCardUserInfo = ({
   name,
@@ -8,10 +9,7 @@ const PostCardUserInfo = ({
   const [firstName, lastName] = name.split(' ');
   return (
     <div className='post-card-user-info'>
-      <div className='post-card-user-info-initials'>
-        {firstName[0]}
-        {lastName[0]}
-      </div>
+      <PostCardUserInitials firstInitial={firstName[0]} lastInitial={lastName[0]} />
       <div className='post-card-user-info-name-email'>
         <p>{name}</p>
         <p>{email}</p>
