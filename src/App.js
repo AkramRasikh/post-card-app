@@ -9,22 +9,22 @@ const App = () => {
     const { data: userData } = await usersAPI();
     const { data: postData } = await postsAPI();
 
-    const postsWithUserData = postData.map(({
-      id,
-      userId,
-      title,
-      body,
+    const postsWithUserData = userData.map(({
+      id: userId,
+      address: {
+        city,
+        street,
+        suite,
+        zipcode,
+      },
+      email,
+      name,
     }) => {
       const {
-        address: {
-          city,
-          street,
-          suite,
-          zipcode,
-        },
-        email,
-        name,
-      } = userData.find(({ id: oneUserId }) => userId === oneUserId);
+        id,
+        title,
+        body,
+      } = postData.find(({ id: postId }) => postId === userId);
       return {
         id,
         name,
@@ -45,7 +45,7 @@ const App = () => {
   return usersPostData.length > 0 ? (
     <div className='App'>
       {usersPostData.map((postData) => (
-        <PostCard key={postData.id.toString()} {...postData} />
+        <PostCard key={postData.id} {...postData} />
       ))}
     </div>
   ) : (
