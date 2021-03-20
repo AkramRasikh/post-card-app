@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { shape, string } from 'prop-types';
 import PostCardAddress from './post-card-address';
 import PostCardUserInfo from './post-card-user-info';
 import PostCardBody from './post-card-body';
+import PostCardCheckbox from './post-card-checkbox';
 
 const PostCard = ({
   address,
@@ -10,14 +11,18 @@ const PostCard = ({
   email,
   title,
   body,
-  ...rest
 }) => {
-  console.log('rest: ', rest);
+  const [greenBackground, setGreenBackground] = useState(false);
+  const postCardContainerClass = !greenBackground ? 'post-card-container' : 'post-card-container green-container';
   return (
-    <div className='post-card-container'>
+    <div className={postCardContainerClass}>
       <div className='post-card-info-container'>
         <PostCardUserInfo name={name} email={email} />
         <PostCardAddress {...address} />
+        <PostCardCheckbox
+          greenBackground={greenBackground}
+          setGreenBackground={setGreenBackground}
+        />
       </div>
       <hr />
       <PostCardBody title={title} body={body} />

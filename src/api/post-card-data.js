@@ -7,7 +7,6 @@ export const usersAPI = async () => {
     );
     return response;
   } catch (error) {
-    console.log('error: ', error);
     return false;
   }
 };
@@ -19,7 +18,6 @@ export const postsAPI = async () => {
     );
     return response;
   } catch (error) {
-    console.log('error: ', error);
     return false;
   }
 };

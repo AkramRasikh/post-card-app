@@ -10,6 +10,10 @@
   background: lightgray;
 }
 
+.green-container {
+  background: green;
+}
+
 .post-card-info-container {
   display: flex;
   justify-content: space-between;
@@ -21,4 +25,5 @@
 
 label {
   display: block;
+  text-align: left;
 }
