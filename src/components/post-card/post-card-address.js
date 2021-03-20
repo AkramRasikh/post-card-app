@@ -7,7 +7,7 @@ const PostCardAddress = ({
   suite,
   zipcode,
 }) => (
-  <div>
+  <div className='post-card-user-info-address'>
     <p>{street}</p>
     <p>{suite}</p>
     <p>{city}</p>

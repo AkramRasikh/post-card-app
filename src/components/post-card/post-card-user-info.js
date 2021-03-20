@@ -8,11 +8,11 @@ const PostCardUserInfo = ({
   const [firstName, lastName] = name.split(' ');
   return (
     <div className='post-card-user-info'>
-      <div>
+      <div className='post-card-user-info-initials'>
         {firstName[0]}
         {lastName[0]}
       </div>
-      <div>
+      <div className='post-card-user-info-name-email'>
         <p>{name}</p>
         <p>{email}</p>
       </div>

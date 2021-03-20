@@ -19,9 +19,11 @@ const PostCard = ({
   const postCardContainerClass = !greenBackground ? 'post-card-container' : 'post-card-container green-container';
   return (
     <div key={id} className={postCardContainerClass}>
-      <div className='post-card-info-container'>
-        <PostCardUserInfo name={name} email={email} />
-        <PostCardAddress {...address} />
+      <div className='post-card-info-flex'>
+        <div className='post-card-info-container'>
+          <PostCardUserInfo name={name} email={email} />
+          <PostCardAddress {...address} />
+        </div>
         <PostCardCheckbox
           greenBackground={greenBackground}
           setGreenBackground={setGreenBackground}

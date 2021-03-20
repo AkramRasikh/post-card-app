@@ -3,10 +3,73 @@
 }
 
 .post-card-container {
-  margin: 20px;
-  padding: 15px;
+  margin: 10px;
+  padding: 10px;
   border: 1px solid black;
-  background: lightgray;
+  background: #EBEBEB;
+}
+
+.green-container {
+  background: #CFFFCD;
+}
+
+.post-card-info-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.post-card-info-flex {
+  display: flex;
+}
+
+.post-card-user-info {
+  display: flex;
+}
+
+.post-card-user-info-initials {
+  background: darkgray;
+  color: #363636;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 12px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.post-card-user-info-name-email {
+  margin: auto;
+}
+
+.post-card-user-info-address {
+  text-align: right;
+}
+
+label {
+  margin-top: 5px;
+  display: block;
+  text-align: left;
+}
+
+p {
+  margin: 0;
+  font-size: 12px;
+}
+
+input[type=text], textarea {
+  display: block;
+  width: 100%;
+}
+
+input[type=checkbox] {
+  width: 15px;
+  height: 15px;
+  margin-left: 5px;
+}
+
+hr {
+  margin-bottom: 0px;
+  width: 100%;
 }
 
 @media (min-width: 768px) {
@@ -25,33 +88,10 @@
     flex: 1;
     min-width: 40%;
   }
-}
 
-
-.green-container {
-  background: green;
-}
-
-.post-card-info-container {
-  display: flex;
-  justify-content: space-between;
-}
-
-.post-card-user-info {
-  display: flex;
-}
-
-label {
-  display: block;
-  text-align: left;
-}
-
-input[type=text], textarea {
-  display: block;
-  width: 100%;
-}
-
-input[type=checkbox] {
-  width: 30px;
-  height: 30px;
+  input[type=checkbox] {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }  
 }
