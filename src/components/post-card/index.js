@@ -6,7 +6,6 @@ import PostCardBody from './post-card-body';
 import PostCardCheckbox from './post-card-checkbox';
 
 const PostCard = ({
-  id,
   address,
   name,
   email,
@@ -18,7 +17,7 @@ const PostCard = ({
   const [bodyText, setBodyText] = useState(body);
   const postCardContainerClass = !greenBackground ? 'post-card-container' : 'post-card-container green-container';
   return (
-    <div key={id} className={postCardContainerClass}>
+    <div className={postCardContainerClass}>
       <div className='post-card-info-flex'>
         <div className='post-card-info-container'>
           <PostCardUserInfo name={name} email={email} />

@@ -9,11 +9,34 @@ const App = () => {
     const { data: userData } = await usersAPI();
     const { data: postData } = await postsAPI();
 
-    const postsWithUserData = postData.map(({ userId, ...props }) => {
-      const userPersonalData = userData.find(({ id }) => userId === id);
+    const postsWithUserData = postData.map(({
+      id,
+      userId,
+      title,
+      body,
+    }) => {
+      const {
+        address: {
+          city,
+          street,
+          suite,
+          zipcode,
+        },
+        email,
+        name,
+      } = userData.find(({ id: oneUserId }) => userId === oneUserId);
       return {
-        ...props,
-        ...userPersonalData,
+        id,
+        name,
+        address: {
+          city,
+          street,
+          suite,
+          zipcode,
+        },
+        email,
+        title,
+        body,
       };
     });
     setUsersPostData(postsWithUserData);
@@ -22,7 +45,7 @@ const App = () => {
   return usersPostData.length > 0 ? (
     <div className='App'>
       {usersPostData.map((postData) => (
-        <PostCard {...postData} />
+        <PostCard key={postData.id.toString()} {...postData} />
       ))}
     </div>
   ) : (
