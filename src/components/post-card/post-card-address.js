@@ -8,9 +8,9 @@ const PostCardAddress = ({
   zipcode,
 }) => (
   <div>
-    <p>{city}</p>
     <p>{street}</p>
     <p>{suite}</p>
+    <p>{city}</p>
     <p>{zipcode}</p>
   </div>
 );
