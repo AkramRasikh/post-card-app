@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { shape, string } from 'prop-types';
+import { number, shape, string } from 'prop-types';
 import PostCardAddress from './post-card-address';
 import PostCardUserInfo from './post-card-user-info';
 import PostCardBody from './post-card-body';
 import PostCardCheckbox from './post-card-checkbox';
 
 const PostCard = ({
+  id,
   address,
   name,
   email,
@@ -13,9 +14,11 @@ const PostCard = ({
   body,
 }) => {
   const [greenBackground, setGreenBackground] = useState(false);
+  const [titleText, setTitleText] = useState(title);
+  const [bodyText, setBodyText] = useState(body);
   const postCardContainerClass = !greenBackground ? 'post-card-container' : 'post-card-container green-container';
   return (
-    <div className={postCardContainerClass}>
+    <div key={id} className={postCardContainerClass}>
       <div className='post-card-info-container'>
         <PostCardUserInfo name={name} email={email} />
         <PostCardAddress {...address} />
@@ -25,12 +28,18 @@ const PostCard = ({
         />
       </div>
       <hr />
-      <PostCardBody title={title} body={body} />
+      <PostCardBody
+        titleText={titleText}
+        setTitleText={setTitleText}
+        bodyText={bodyText}
+        setBodyText={setBodyText}
+      />
     </div>
   );
 };
 
 PostCard.propTypes = {
+  id: number.isRequired,
   address: shape({
     city: string.isRequired,
     street: string.isRequired,

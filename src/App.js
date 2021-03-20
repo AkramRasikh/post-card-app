@@ -21,8 +21,8 @@ const App = () => {
 
   return usersPostData.length > 0 ? (
     <div className='App'>
-      {usersPostData.map(({ id, ...postData }) => (
-        <PostCard key={id} {...postData} />
+      {usersPostData.map((postData) => (
+        <PostCard {...postData} />
       ))}
     </div>
   ) : (
