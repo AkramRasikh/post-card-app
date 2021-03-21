@@ -9,22 +9,22 @@ const App = () => {
     const { data: userData } = await usersAPI();
     const { data: postData } = await postsAPI();
 
-    const postsWithUserData = userData.map(({
-      id: userId,
-      address: {
-        city,
-        street,
-        suite,
-        zipcode,
-      },
-      email,
-      name,
+    const postsWithUserData = postData.map(({
+      id,
+      userId,
+      title,
+      body,
     }) => {
       const {
-        id,
-        title,
-        body,
-      } = postData.find(({ id: postId }) => postId === userId);
+        address: {
+          city,
+          street,
+          suite,
+          zipcode,
+        },
+        email,
+        name,
+      } = userData.find(({ id: postId }) => postId === userId);
       return {
         id,
         name,
