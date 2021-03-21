@@ -42,14 +42,12 @@ const App = () => {
     setUsersPostData(postsWithUserData);
   }, []);
 
-  return usersPostData.length > 0 ? (
+  return (
     <div className='App'>
-      {usersPostData.map((postData) => (
+      { usersPostData.length > 0 ? usersPostData.map((postData) => (
         <PostCard key={postData.id} {...postData} />
-      ))}
+      )) : <div>...Loading</div> }
     </div>
-  ) : (
-    <div>...Loading</div>
   );
 };
 
